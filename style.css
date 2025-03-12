@@ -133,7 +133,7 @@ body {
   position: absolute; /*.holeを基準に配置*/
   width: 96px;
   height: 96px;
-  top: -11px;
+  top: -18px;
   left: 1px;
   cursor: pointer;
   display: none;
@@ -144,28 +144,25 @@ body {
 
 @keyframes cats-move { /*ねこが出るアニメーション*/
   0%{
-      top: -11px;
+      top: -18px;
   }
   10%{
-      top: -22px;
+      top: -25px;
   }
   20%{
-      top: -30px;
+      top: -35px;
   }
   30%{
-      top: -34px;
+      top: -38px;
   }
   50%{
-      top: -37px;
+      top: -41px;
   }
-  70%{
-    top: -40px;
-  }
-  85%{
-      top: -43px;
+  80%{
+      top: -44px;
   }
   100%{
-      top: -45px;
+      top: -47px;
   }
 }
 
