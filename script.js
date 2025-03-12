@@ -190,6 +190,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function handleCatClick(catElement) {
+    if (!catElement || !catElement.classList.contains("cat") && !catElement.classList.contains("mouse")) {
+      return;
+    }
     if (catElement.classList.contains("cat")) {
       if (!catElement.src.includes("_hit.png")) {
           score += 1;  // ねこの場合は得点を加算
@@ -204,12 +207,12 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (catElement.classList.contains("mouse")) {
         // すでに "mouse_hit.png" になっていたら何もしない
       if (!catElement.src.includes("mouse_hit.png")) {
-        time -= 1;
-        // **時間が0未満になったら0にする**
-        if (time < 0) {
-          time = 0;
-        }
+        time = Math.max(0, time - 1);
+        document.getElementById("timeValue").textContent = time; //必ず画面の時間を更新
         catElement.src = "mouse_hit.png";
+        if (time === 0) {
+          stopGame();
+        }
       }
     }
 
