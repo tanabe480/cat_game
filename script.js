@@ -123,11 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
   let isMuted = false;
 
   // ミュートボタンのクリックイベント
-  muteButton.addEventListener("click", function() {
-      isMuted = !isMuted; // ミュート状態を切り替え
-      catSound.muted = isMuted; 
-      mouseSound.muted = isMuted;
-      updateMuteButton();
+  muteButton.addEventListener("click", function(event) {
+    event.stopPropagation(); // ✅ ミュートボタンをクリックしても `hole` には影響しない
+    isMuted = !isMuted;
+    catSound.muted = isMuted; 
+    mouseSound.muted = isMuted;
+    updateMuteButton();
   });
 
   // ミュートボタンの見た目を更新
